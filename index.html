@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte Interactive avec Stream Twitch</title>
+    <style>
+        /* Style pour le conteneur de la carte */
+        .carte-container {
+            position: relative;
+            width: 1600px; /* Taille doublée par rapport à 800px */
+            margin: 0 auto;
+        }
+
+        /* Style de l'image de la carte */
+        .carte-image {
+            width: 100%;
+            display: block;
+        }
+
+        /* Style des pins */
+        .pin {
+            position: absolute;
+            width: 40px; /* Taille doublée par rapport à 20px */
+            height: 40px;
+            background-color: red;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        /* Tooltip pour chaque pin */
+        .tooltip {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            z-index: 10;
+        }
+
+        .pin:hover + .tooltip {
+            display: block;
+        }
+
+        /* Style pour le lecteur Twitch */
+        .twitch-embed {
+            width: 1600px; /* Largeur de l'iframe */
+            height: 600px; /* Hauteur de l'iframe */
+            margin: 20px auto;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Iframe pour le lecteur Twitch -->
+<div class="twitch-embed">
+    <iframe 
+        src="https://player.twitch.tv/?channel=marcus_sensei&parent=localhost" 
+        frameborder="0" 
+        allowfullscreen="true" 
+        scrolling="no">
+    </iframe>
+</div>
+
+<div class="carte-container">
+    <!-- Insérer l'image de la carte -->
+    <img src="Sans titre.png" alt="Carte" class="carte-image"> <!-- Lien vers l'image téléchargée -->
+
+    <!-- Pin et description pour le premier point -->
+    <div class="pin" style="top: 400px; left: 600px;" onclick="alert('Ceci est le lieu A')"></div>
+    <div class="tooltip" style="top: 400px; left: 650px;">Lieu A : Description</div>
+
+    <!-- Pin et description pour le deuxième point -->
+    <div class="pin" style="top: 700px; left: 800px;" onclick="alert('Ceci est le lieu B')"></div>
+    <div class="tooltip" style="top: 700px; left: 850px;">Lieu B : Description</div>
+
+    <!-- Ajouter d'autres pins de manière similaire -->
+</div>
+
+</body>
+</html>
+
